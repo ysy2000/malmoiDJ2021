@@ -20,25 +20,20 @@ if __name__ == '__main__':
     # print(type(num2Add))  =  <class 'list'>
 
     Data_lists = [Data_list1,Data_list2]
-    # print(str(Data_lists[0]))
+    # print(str(Data_lists[0]))  =  pd
     # print(type(Data_lists))  =  <class 'list'>
-#     # print(Data_list1) =  
-#                                                  file_name                             text
-# 0      1752/K00021752-AFG13-L1N2D1-E-K0KK-00546684.wav                        큰 소리로 말해요
-
+    j = 0
     for Data_list in Data_lists:
-        # print(Data_list)
         for i in range(len(Data_list)):
             labels.append(Data_list.iloc[i].text)
-            file_names.append(num2Add[1]+Data_list.iloc[i].file_name)
+            file_names.append(num2Add[j]+Data_list.iloc[i].file_name)
+        j = j + 1
     # print(len(train_labels))
           
     # script 와 file csv에 쓰기
-    with open(csvPATH, 'a') as f:
+    with open(csvPATH, 'a', newline='') as f:
         wr = csv.writer(f)
         for Data_list in Data_lists:
             for i in range(len(Data_list)):
+                # max_i = 635104
                 wr.writerow([file_names[i],labels[i]])
-        # char_freq = tocken_freq(labels,file_names)
-        # for i, char in enumerate(list(char_freq.keys())):
-        #     wr.writerow([i, char, char_freq[char]]) 
