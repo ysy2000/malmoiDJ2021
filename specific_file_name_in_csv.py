@@ -22,12 +22,11 @@ if __name__ == '__main__':
     Data_lists = [Data_list1,Data_list2]
     # print(str(Data_lists[0]))  =  pd
     # print(type(Data_lists))  =  <class 'list'>
-    j = 0
-    for Data_list in Data_lists:
+    
+    for j, Data_list in enumerate(Data_lists):
         for i in range(len(Data_list)):
             labels.append(Data_list.iloc[i].text)
             file_names.append(num2Add[j]+Data_list.iloc[i].file_name)
-        j = j + 1
     # print(len(train_labels))
           
     # script 와 file csv에 쓰기
